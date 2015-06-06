@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -44,6 +46,26 @@ namespace PD_SENSOR
             TrackPH.Update();
             TrackTransparencia.Update();
             TrackAlcalinidade.Update();
+            send_values(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
+        }
+
+        private void send_values(int temperatura, int dureza, int nivel, int ph, int transparencia, int alcalinidade)
+        {
+            string URI = "http://premium-valor-94418.appspot.com/dados";
+            string myParameters = "temperatura="+temperatura.ToString()+"&ph="+ph.ToString()+"&dureza="+dureza.ToString()+"&alcalinidade="+alcalinidade.ToString()+"&nivelo2="+nivel.ToString()+"&transparencia="+transparencia.ToString();
+
+            using (WebClient wc = new WebClient())
+            {
+                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                string HtmlResult = wc.UploadString(URI, myParameters);
+
+                textBox2.Text = textBox2.Text + HtmlResult + Environment.NewLine;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

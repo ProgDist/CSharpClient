@@ -45,6 +45,7 @@
             this.TrackTransparencia = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.TrackTemperatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackPH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackDureza)).BeginInit();
@@ -59,7 +60,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "2";
+            this.textBox1.Text = "5";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -194,11 +196,21 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(13, 280);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(275, 88);
+            this.textBox2.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 278);
+            this.ClientSize = new System.Drawing.Size(300, 380);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.TrackTransparencia);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TrackNivel);
@@ -245,6 +257,7 @@
         private System.Windows.Forms.TrackBar TrackTransparencia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
