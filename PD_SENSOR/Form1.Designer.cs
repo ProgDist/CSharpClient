@@ -61,7 +61,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "5";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -75,12 +74,13 @@
             // 
             // TrackTemperatura
             // 
+            this.TrackTemperatura.Enabled = false;
             this.TrackTemperatura.Location = new System.Drawing.Point(9, 84);
-            this.TrackTemperatura.Maximum = 100;
+            this.TrackTemperatura.Maximum = 50;
             this.TrackTemperatura.Name = "TrackTemperatura";
             this.TrackTemperatura.Size = new System.Drawing.Size(104, 45);
             this.TrackTemperatura.TabIndex = 2;
-            this.TrackTemperatura.TickFrequency = 10;
+            this.TrackTemperatura.TickFrequency = 5;
             // 
             // label1
             // 
@@ -94,12 +94,12 @@
             // 
             // TrackPH
             // 
+            this.TrackPH.Enabled = false;
             this.TrackPH.Location = new System.Drawing.Point(151, 84);
-            this.TrackPH.Maximum = 100;
             this.TrackPH.Name = "TrackPH";
             this.TrackPH.Size = new System.Drawing.Size(104, 45);
             this.TrackPH.TabIndex = 4;
-            this.TrackPH.TickFrequency = 10;
+            this.TrackPH.TickFrequency = 2;
             // 
             // label2
             // 
@@ -121,6 +121,7 @@
             // 
             // TrackDureza
             // 
+            this.TrackDureza.Enabled = false;
             this.TrackDureza.Location = new System.Drawing.Point(9, 156);
             this.TrackDureza.Maximum = 100;
             this.TrackDureza.Name = "TrackDureza";
@@ -139,8 +140,9 @@
             // 
             // TrackAlcalinidade
             // 
+            this.TrackAlcalinidade.Enabled = false;
             this.TrackAlcalinidade.Location = new System.Drawing.Point(151, 156);
-            this.TrackAlcalinidade.Maximum = 100;
+            this.TrackAlcalinidade.Maximum = 120;
             this.TrackAlcalinidade.Name = "TrackAlcalinidade";
             this.TrackAlcalinidade.Size = new System.Drawing.Size(104, 45);
             this.TrackAlcalinidade.TabIndex = 10;
@@ -157,12 +159,13 @@
             // 
             // TrackNivel
             // 
+            this.TrackNivel.Enabled = false;
             this.TrackNivel.Location = new System.Drawing.Point(9, 228);
-            this.TrackNivel.Maximum = 100;
+            this.TrackNivel.Maximum = 15;
             this.TrackNivel.Name = "TrackNivel";
             this.TrackNivel.Size = new System.Drawing.Size(104, 45);
-            this.TrackNivel.TabIndex = 12;
-            this.TrackNivel.TickFrequency = 10;
+            this.TrackNivel.TabIndex = 3;
+            this.TrackNivel.TickFrequency = 3;
             // 
             // label6
             // 
@@ -175,12 +178,13 @@
             // 
             // TrackTransparencia
             // 
+            this.TrackTransparencia.Enabled = false;
             this.TrackTransparencia.Location = new System.Drawing.Point(151, 228);
-            this.TrackTransparencia.Maximum = 100;
+            this.TrackTransparencia.Maximum = 50;
             this.TrackTransparencia.Name = "TrackTransparencia";
             this.TrackTransparencia.Size = new System.Drawing.Size(104, 45);
             this.TrackTransparencia.TabIndex = 14;
-            this.TrackTransparencia.TickFrequency = 10;
+            this.TrackTransparencia.TickFrequency = 5;
             // 
             // label7
             // 

@@ -34,12 +34,12 @@ namespace PD_SENSOR
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TrackTemperatura.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
-            TrackDureza.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
-            TrackNivel.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
-            TrackPH.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
-            TrackTransparencia.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
-            TrackAlcalinidade.Value = new Random(Guid.NewGuid().GetHashCode()).Next(0, 100);
+            TrackTemperatura.Value = new Random(Guid.NewGuid().GetHashCode()).Next(20, 30);
+            TrackDureza.Value = new Random(Guid.NewGuid().GetHashCode()).Next(50, 100);
+            TrackNivel.Value = new Random(Guid.NewGuid().GetHashCode()).Next(3, 12);
+            TrackPH.Value = new Random(Guid.NewGuid().GetHashCode()).Next(5, 8);
+            TrackTransparencia.Value = new Random(Guid.NewGuid().GetHashCode()).Next(20, 50);
+            TrackAlcalinidade.Value = new Random(Guid.NewGuid().GetHashCode()).Next(70, 120);
             TrackTemperatura.Update();
             TrackDureza.Update();
             TrackNivel.Update();
@@ -47,6 +47,7 @@ namespace PD_SENSOR
             TrackTransparencia.Update();
             TrackAlcalinidade.Update();
             send_values(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
+            //teste(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
         }
 
         private void send_values(int temperatura, int dureza, int nivel, int ph, int transparencia, int alcalinidade)
@@ -63,9 +64,13 @@ namespace PD_SENSOR
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void teste(int temperatura, int dureza, int nivel, int ph, int transparencia, int alcalinidade)
         {
-
+            string myParameters = "temperatura="+temperatura.ToString()+"&ph="+ph.ToString()+"&dureza="+dureza.ToString()+"&alcalinidade="+alcalinidade.ToString()+"&nivelo2="+nivel.ToString()+"&transparencia="+transparencia.ToString();
+            if ((temperatura > 28 || temperatura < 22) || (ph > 7 || ph < 6) || (dureza < 65 || dureza > 80) || (alcalinidade < 80 || alcalinidade > 100) || (nivel < 6 || nivel > 10) || (transparencia < 30 || transparencia > 40))
+            {
+                textBox2.Text = myParameters;
+            }
         }
     }
 }
