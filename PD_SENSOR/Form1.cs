@@ -16,20 +16,6 @@ namespace PD_SENSOR
         public Form1()
         {
             InitializeComponent();
-            timer1.Interval = int.Parse(this.textBox1.Text)*1000;
-            timer1.Start();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            timer1.Interval = int.Parse(this.textBox1.Text) * 1000;
-            timer1.Start();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -47,7 +33,6 @@ namespace PD_SENSOR
             TrackTransparencia.Update();
             TrackAlcalinidade.Update();
             send_values(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
-            //teste(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
         }
 
         private void send_values(int temperatura, int dureza, int nivel, int ph, int transparencia, int alcalinidade)
@@ -71,6 +56,52 @@ namespace PD_SENSOR
             {
                 textBox2.Text = myParameters;
             }
+        }
+
+        private void start_click(object sender, EventArgs e)
+        {
+            timer1.Interval = int.Parse(this.textBox1.Text) * 1000;
+            timer1.Start();
+        }
+
+        private void stop_click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void enviar_click(object sender, EventArgs e)
+        {
+            send_values(TrackTemperatura.Value, TrackDureza.Value, TrackNivel.Value, TrackPH.Value, TrackTransparencia.Value, TrackAlcalinidade.Value);
+        }
+
+        private void temp_scroll(object sender, EventArgs e)
+        {
+            label1.Text = "Temperatura: " + TrackTemperatura.Value;
+        }
+
+        private void ph_scroll(object sender, EventArgs e)
+        {
+            label2.Text = "Ph: " + TrackPH.Value;
+        }
+
+        private void dureza_scroll(object sender, EventArgs e)
+        {
+            label3.Text = "Dureza: " + TrackDureza.Value;
+        }
+
+        private void alcalinidade_scroll(object sender, EventArgs e)
+        {
+            label5.Text = "Alcalinidade: " + TrackAlcalinidade.Value;
+        }
+
+        private void nivel_scroll(object sender, EventArgs e)
+        {
+            label6.Text = "Nivel O²" + TrackNivel.Value;
+        }
+
+        private void transparencia_scroll(object sender, EventArgs e)
+        {
+            label7.Text = "Transparência: " + TrackTransparencia.Value;
         }
     }
 }
